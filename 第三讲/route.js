@@ -1,5 +1,10 @@
-function route(pathname) {
-    console.log("注入进来的路径："+pathname)
+function route(handle,pathname) {
+    if(typeof handle[pathname] === 'function'){
+        handle[pathname]();
+    }else{
+        console.log("没有找到路径："+pathname)
+    }
+
 }
 
 exports.route = route;
